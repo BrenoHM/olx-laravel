@@ -29,14 +29,12 @@
   <div class="ads">
     <div class="ads-title">Anúncios recentes</div>
     <div class="ads-area">
-      <div class="ad-item">
-        <div
-          class="ad-image"
-          style="background-image: url('http://placehold.it/150x150')"
-        ></div>
-        <div class="ad-title">Bola de Futebol Americano Wilson</div>
-        <div class="ad-price">R$ 138,61</div>
-      </div>
+      <x-simple-advertises
+        bgImage="http://placehold.it/150x150"
+        title="Bola de Futebol Americano Wilson"
+        price="138,61"
+        href="#"
+      />
       <div class="ad-item">
         <div
           class="ad-image"
