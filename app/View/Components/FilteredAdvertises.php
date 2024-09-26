@@ -8,12 +8,60 @@ use Illuminate\View\Component;
 
 class FilteredAdvertises extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+
+    public $advertiseList = null;
     public function __construct()
     {
-        //
+        $this->advertiseList = [
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ],
+            [
+                'image' => 'http://placehold.it/150x150',
+                'title' => 'Tênis vans Baby - 1 ano',
+                'price' => '189,99',
+                'href' => '#'
+            ]
+        ];
     }
 
     /**
