@@ -19,6 +19,15 @@
         </div>
         <form method="POST" action="{{ route('register_action') }}">
           @csrf
+
+          <div>
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            @endif
+          </div>
+          
           <div class="name-area">
             <div class="name-label">Nome</div>
             <input type="text" name="name" placeholder="Digite o seu nome" />
@@ -31,6 +40,13 @@
             <div class="password-label">Senha</div>
             <div class="password-input-area">
               <input type="password" name="password" placeholder="Digite a sua senha" />
+              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
+            </div>
+          </div>
+          <div class="password-area">
+            <div class="password-label">Confirme a Senha</div>
+            <div class="password-input-area">
+              <input type="password" name="password_confirmation" placeholder="Confirme a sua senha" />
               <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
             </div>
           </div>
