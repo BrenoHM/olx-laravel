@@ -46,11 +46,12 @@
 .login-area {
   width: 100%;
   max-width: 640px;
-  height: 800px;
+  height: auto;
   border: 1px solid #e7e9ed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 40px;
 }
 .login-title {
   color: #5c7bfa;
@@ -58,7 +59,7 @@
   font-size: 38px;
   font-weight: 700;
   line-height: normal;
-  margin-top: 64px;
+  margin-top: 40px;
 }
 .text-login {
   width: 209px;
@@ -73,7 +74,7 @@
 form {
   width: 100%;
   max-width: 472px;
-  margin-top: 56px;
+  margin-top: 40px;
 }
 .name-label,
 .email-label,

@@ -44,20 +44,14 @@
           </div>
           <div class="password-area">
             <div class="password-label">Senha</div>
-            <div class="password-input-area">
-              <input type="password" name="password" placeholder="Digite a sua senha" @error('password') class="is-invalid" @enderror />
-              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" />
             @error('password')
               <div class="error">{{ $message }}</div>
             @enderror
           </div>
           <div class="password-area">
             <div class="password-label">Confirme a Senha</div>
-            <div class="password-input-area">
-              <input type="password" name="password_confirmation" placeholder="Confirme a sua senha" />
-              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+            <x-form.password-input name="password_confirmation" placeholder="Confirme a sua senha" id="password_confirmation" />
           </div>
           <button class="login-button">Cadastrar</button>
         </form>
