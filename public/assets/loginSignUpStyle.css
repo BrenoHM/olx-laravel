@@ -85,6 +85,7 @@ form {
   line-height: normal;
 }
 .name-area input,
+.name-area select,
 .email-area input,
 .password-input-area input {
   width: 100%;

@@ -14,15 +14,17 @@
     <div class="login-page">
       <div class="login-area">
         <h3 class="login-title">B7Store</h3>
-        <div class="text-login">
-          Selecione o seu estado
-        </div>
         <form method="POST" action="{{ route('state_action') }}">
           @csrf
           <div class="name-area">
-            <div class="name-label">Estado</div>
-            <input type="text" name="name" placeholder="Digite o seu nome" @error('name') class="is-invalid" @enderror />
-            @error('name')
+            <div class="name-label">Selecione o seu estado</div>
+            {{-- <input type="text" name="name" placeholder="Digite o seu nome" @error('name') class="is-invalid" @enderror /> --}}
+            <select name="state" id="state" @error('state') class="is-invalid" @enderror>
+              @foreach ($states as $sigla => $state)
+                <option value="{{ $sigla }}">{{ $state }}</option>
+              @endforeach
+            </select>
+            @error('state')
               <div class="error">{{ $message }}</div>
             @enderror
           </div>

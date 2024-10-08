@@ -22,6 +22,7 @@ class AuthController extends Controller
         $userData['password'] = Hash::make($userData['password']);
         $user = User::create($userData);
         Auth::loginUsingId($user->id);
+        return redirect()->route('select-state');
     }
 
     public function state_action(Request $request)
