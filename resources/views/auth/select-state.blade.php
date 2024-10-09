@@ -20,8 +20,8 @@
             <div class="name-label">Selecione o seu estado</div>
             {{-- <input type="text" name="name" placeholder="Digite o seu nome" @error('name') class="is-invalid" @enderror /> --}}
             <select name="state" id="state" @error('state') class="is-invalid" @enderror>
-              @foreach ($states as $sigla => $state)
-                <option value="{{ $sigla }}">{{ $state }}</option>
+              @foreach ($states => $state)
+                <option value="{{ $state->id }}">{{ $state->name }}</option>
               @endforeach
             </select>
             @error('state')

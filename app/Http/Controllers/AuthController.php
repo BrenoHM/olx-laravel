@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,5 +30,12 @@ class AuthController extends Controller
     
     {
         dd($request->all());
+    }
+
+    public function select_state()
+
+    {
+        $data['states'] = State::all();
+        return view('auth.select-state', $data);
     }
 }
