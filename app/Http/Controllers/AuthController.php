@@ -26,16 +26,25 @@ class AuthController extends Controller
         return redirect()->route('select-state');
     }
 
-    public function state_action(Request $request)
-    
-    {
-        dd($request->all());
-    }
-
     public function select_state()
 
     {
         $data['states'] = State::all();
         return view('auth.select-state', $data);
+    }
+
+    public function state_action(Request $request)
+    
+    {
+        $state = $request->only('state');
+        $stateRegister = State::find($state['state']);
+        if (!$stateRegister) {
+            return redirect()->route('login');
+        }
+        
+        Auth::user()->state()->associate($stateRegister);
+        Auth::user()->save();
+        
+        return redirect()->route('home');
     }
 }
