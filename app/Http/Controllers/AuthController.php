@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\State;
 use App\Models\User;
@@ -46,5 +47,11 @@ class AuthController extends Controller
         Auth::user()->save();
         
         return redirect()->route('home');
+    }
+
+    public function login_action(LoginRequest $request)
+    
+    {
+        dd($request->all());
     }
 }

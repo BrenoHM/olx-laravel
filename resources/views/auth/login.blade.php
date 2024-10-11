@@ -17,20 +17,20 @@
         <div class="text-login">
           Use as suas credenciais para realizar o Login.
         </div>
-        <form>
+        <form action="{{ route('loginAction') }}" method="POST">
+          @csrf
           <div class="email-area">
             <div class="email-label">E-mail</div>
-            <input type="email" placeholder="Digite o seu e-mail" />
+            <input type="email" name="email" placeholder="Digite o seu e-mail" />
           </div>
           <div class="password-area">
             <div class="password-label">
               <div class="password-area-text">Senha</div>
               <a href="{{ route('forgot-password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
             </div>
-            <div class="password-input-area">
-              <input type="password" placeholder="Digite a sua senha" />
-              <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-            </div>
+            
+            <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" />
+            
           </div>
           <button class="login-button">Entrar</button>
         </form>
