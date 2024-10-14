@@ -19,9 +19,15 @@
         </div>
         <form action="{{ route('loginAction') }}" method="POST">
           @csrf
+          @session('error')
+            <div class="error">{{ session('error') }}</div>
+          @endsession
           <div class="email-area">
             <div class="email-label">E-mail</div>
             <input type="email" name="email" placeholder="Digite o seu e-mail" />
+            @error('email')
+              <div class="error">{{ $message }}</div>
+            @enderror
           </div>
           <div class="password-area">
             <div class="password-label">
@@ -30,7 +36,9 @@
             </div>
             
             <x-form.password-input name="password" placeholder="Digite a sua senha" id="password" />
-            
+            @error('password')
+              <div class="error">{{ $message }}</div>
+            @enderror
           </div>
           <button class="login-button">Entrar</button>
         </form>

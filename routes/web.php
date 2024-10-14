@@ -18,6 +18,8 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::post('/login', [AuthController::class, 'login_action'])->name('loginAction');
 
 Route::get('/forgot-password', function () {

@@ -52,6 +52,18 @@ class AuthController extends Controller
     public function login_action(LoginRequest $request)
     
     {
-        dd($request->all());
+        $loginData = $request->validated();
+        if (!Auth::attempt($loginData)) {
+            return redirect()->route('login')->with('error', 'E-mail ou senha inválidos');
+        }
+        return redirect()->route('home');
     }
+
+    public function logout()
+    
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+     
 }
