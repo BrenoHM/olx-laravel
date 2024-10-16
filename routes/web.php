@@ -1,15 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
-
-Route::get('/my-account', function () {
-    return view('home');
-})->name('myAccount');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_action'])->name('register_action');
@@ -29,3 +26,6 @@ Route::get('/forgot-password', function () {
 Route::get('/select-state', [AuthController::class, 'select_state'])->name('select-state');
 
 Route::post('/select-state', [AuthController::class, 'state_action'])->name('state_action');
+
+Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
+Route::post('/dashboard/my-account', [DashboardController::class, 'action_my_account'])->name('action.my_account');
