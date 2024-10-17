@@ -26,50 +26,43 @@
             >
         </div>
         <div class="sidebar-bottom">
-            <a href="/index.html"
-            ><img src="/assets/icons/logoutIcon.png" /> Sair</a
-            >
+            <a href="{{ route('logout') }}"><img src="/assets/icons/logoutIcon.png" /> Sair</a>
         </div>
         </div>
         <div class="profile-area">
         <h3 class="profile-title">Meu perfil</h3>
-        <form>
+        <form method="POST" action="">
             <div class="name-area">
-            <div class="name-label">Nome</div>
-            <input
-                type="text"
-                placeholder="Digite o seu nome"
-                value="Bonieky Lacerda"
-            />
+              <div class="name-label">Nome</div>
+              <input
+                  type="text"
+                  name="name"
+                  placeholder="Digite o seu nome"
+                  value="{{$user->name}}"
+              />
+              @error('name')
+                <div class="error">{{ $message }}</div>
+              @enderror
             </div>
             <div class="email-area">
-            <div class="email-label">E-mail</div>
-            <input
-                type="email"
-                placeholder="Digite o seu e-mail"
-                value="suporte@b7web.com"
-            />
-            </div>
-            <div class="password-area">
-            <div class="password-label">Senha</div>
-            <div class="password-input-area">
-                <input
-                type="password"
-                placeholder="Digite a sua senha"
-                value="123456789"
-                />
-                <img src="/assets/icons/eyeIcon.png" />
-            </div>
+              <div class="email-label">E-mail</div>
+              <input
+                  type="email"
+                  name="email"
+                  placeholder="Digite o seu e-mail"
+                  value="{{$user->email}}"
+              />
+              @error('email')
+                <div class="error">{{ $message }}</div>
+              @enderror
             </div>
             <div class="state-area">
-            <div class="state-label">Estado</div>
-            <select class="states">
-                <option value="PB">Paraíba</option>
-                <option value="PE">Pernambuco</option>
-                <option value="RJ" selected>Rio de Janeiro</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="SP">São Paulo</option>
-            </select>
+              <div class="state-label">Estado</div>
+              <select class="states" name="state">
+                  @foreach ($states as $state)
+                    <option value="{{ $state->id }}" @selected($user->state_id == $state->id)>{{ $state->name }}</option>
+                  @endforeach
+              </select>
             </div>
             <button class="save-button">Salvar</button>
         </form>
