@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\State;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class DashboardController extends Controller
         return view('dashboard.my-account', $data);
     }
 
-    public function action_my_account(Request $request)
+    public function action_my_account(UpdateProfileRequest $request)
     {
-        return view('dashboard.my-account');
+        dd($request->all());
     }
 }

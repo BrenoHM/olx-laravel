@@ -31,7 +31,8 @@
         </div>
         <div class="profile-area">
         <h3 class="profile-title">Meu perfil</h3>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('action.my_account') }}">
+            @csrf
             <div class="name-area">
               <div class="name-label">Nome</div>
               <input
