@@ -17,18 +17,13 @@ class DashboardController extends Controller
 
     public function action_my_account(UpdateProfileRequest $request)
     {
-        $data = $request->only('name', 'email', 'state');
-
-        $stateRegister = State::find($data['state']);
-        if (!$stateRegister) {
-            return redirect()->route('/');
-        }
+        $data = $request->validated();
         $user = auth()->user();
         $user->name = $data['name'];
         $user->email = $data['email'];
-        $user->state()->associate($stateRegister);
+        $user->state_id = $data['state_id'];
         $user->save();
 
-        return redirect()->route('my_account');
+        return redirect()->route('my_account')->with('success', 'Informações atualizadas.');
     }
 }

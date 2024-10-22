@@ -31,6 +31,9 @@
         </div>
         <div class="profile-area">
         <h3 class="profile-title">Meu perfil</h3>
+        @session('success')
+          <div class="alert alert-success">{{ session('success') }}</div>
+        @endsession
         <form method="POST" action="{{ route('action.my_account') }}">
             @csrf
             <div class="name-area">
@@ -59,7 +62,7 @@
             </div>
             <div class="state-area">
               <div class="state-label">Estado</div>
-              <select class="states" name="state">
+              <select class="states" name="state_id">
                   @foreach ($states as $state)
                     <option value="{{ $state->id }}" @selected($user->state_id == $state->id)>{{ $state->name }}</option>
                   @endforeach
