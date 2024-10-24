@@ -23,3 +23,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'action_my_account'])->name('action.my_account');
 });
+Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
