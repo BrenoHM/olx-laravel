@@ -19,6 +19,7 @@
   align-items: center;
   text-decoration: none;
   color: #96a3ab;
+  margin-bottom: 56px;
 }
 .sidebar img {
   margin-right: 8px;
@@ -28,7 +29,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
-  margin-bottom: 56px;
 }
 .sidebar-bottom {
   margin-bottom: 72px;
