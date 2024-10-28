@@ -18,24 +18,26 @@
         <div class="myAds-area">
           <h3 class="myAds-title">Meus Anúncios</h3>
           <div class="myAds-ads-area">
-            <div class="my-ad-item">
-              <div class="ad-image-area">
-                <div class="ad-buttons">
-                  <div class="ad-button">
-                    <img src="/assets/icons/deleteIcon.png" />
+            @foreach ($user->advertises as $avertise)
+              <div class="my-ad-item">
+                <div class="ad-image-area">
+                  <div class="ad-buttons">
+                    <div class="ad-button">
+                      <img src="/assets/icons/deleteIcon.png" />
+                    </div>
+                    <div class="ad-button">
+                      <img src="/assets/icons/editIcon.png" />
+                    </div>
                   </div>
-                  <div class="ad-button">
-                    <img src="/assets/icons/editIcon.png" />
-                  </div>
+                  <div
+                    class="ad-image"
+                    style="background-image: url('{{$avertise->images[0]->url}}')"
+                  ></div>
                 </div>
-                <div
-                  class="ad-image"
-                  style="background-image: url('/assets/myAds/game1.png')"
-                ></div>
+                <div class="ad-title">{{$avertise->title}}</div>
+                <div class="ad-price">R$ {{number_format($avertise->price, 2, ',', '.')}}</div>
               </div>
-              <div class="ad-title">Controle PS4 - Preto</div>
-              <div class="ad-price">R$ 275,00</div>
-            </div>
+            @endforeach
             <div class="my-ad-item">
               <div class="ad-image-area">
                 <div class="ad-buttons">

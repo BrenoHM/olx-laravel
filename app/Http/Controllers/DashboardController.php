@@ -29,6 +29,15 @@ class DashboardController extends Controller
 
     public function my_ads()
     {
-        return view('dashboard.my-ads');
+        $user = auth()->user();
+        $user->load('advertises');
+        $user->load(['advertises.images' => function ($query) {
+            $query->where('featured', 1);
+        }]);
+        // $user->advertises->load(['images', function ($query) {
+        //     $query->where('featured', 1);
+        // }]);
+        //dd($user->advertises);
+        return view('dashboard.my-ads', compact('user'));
     }
 }
