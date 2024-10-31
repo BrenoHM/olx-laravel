@@ -29,13 +29,8 @@
   <div class="ads">
     <div class="ads-title">Anúncios recentes</div>
     <div class="ads-area">
-      @foreach ($advertiseList as $ad)
-        <x-simple-advertises
-          bgImage="{{$ad['image']}}"
-          title="{{$ad['title']}}"
-          price="{{$ad['price']}}"
-          href="{{$ad['href']}}"
-        />    
+      @foreach ($advertiseList as $avertise)
+        <x-basic-ad :avertise="$avertise" />
       @endforeach
     </div>
   </div>
