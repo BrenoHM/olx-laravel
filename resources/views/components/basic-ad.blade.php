@@ -1,5 +1,24 @@
+<style>
+  .my-ad-item {
+    position: relative;
+  }
+  .my-ad-item span.pill {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    background: teal;
+    font-size: 12px;
+  }
+  .my-ad-item span.my-ad-pill {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+</style>
+
 <div class="my-ad-item">
     <div class="ad-image-area">
+      <span class="pill my-ad-pill">Meu Anúncio</span>
       @if (!empty($canEdit))
         <div class="ad-buttons">
           <div class="ad-button">
