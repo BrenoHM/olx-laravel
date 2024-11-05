@@ -18,7 +18,7 @@
 
 <div class="my-ad-item">
     <div class="ad-image-area">
-      <span class="pill my-ad-pill">Meu Anúncio</span>
+      @if (!empty($myAds)) <span class="pill my-ad-pill">Meu Anúncio</span> @endif
       @if (!empty($canEdit))
         <div class="ad-buttons">
           <div class="ad-button">
