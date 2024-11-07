@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/my-account', [DashboardController::class, 'action_my_account'])->name('action.my_account');
 });
 Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
+Route::get('/dashboard/ad/delete/{id}', [AdController::class, 'delete'])->name('ad.delete');

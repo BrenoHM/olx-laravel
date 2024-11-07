@@ -21,9 +21,9 @@
       @if (!empty($myAds)) <span class="pill my-ad-pill">Meu Anúncio</span> @endif
       @if (!empty($canEdit))
         <div class="ad-buttons">
-          <div class="ad-button">
+          <a href="{{ route('ad.delete', $avertise->id) }}" class="ad-button">
             <img src="/assets/icons/deleteIcon.png" />
-          </div>
+          </a>
           <div class="ad-button">
             <img src="/assets/icons/editIcon.png" />
           </div>
