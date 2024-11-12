@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad.show');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_action'])->name('register_action');
 Route::get('/login', function () {
