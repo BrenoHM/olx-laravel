@@ -41,23 +41,24 @@
           </div>
         </div>
         <div class="ad-area-right">
-          <div class="categories-state">Rio de Janeiro / Carros</div>
-          <div class="ad-page-title">Volkswagen Fusca 68</div>
-          <div class="ad-page-date">Publicado em 04/07 às 12:48</div>
-          <div class="ad-page-price">R$ 34.990,00</div>
-          <div class="contact">
-            <img src="/assets/icons/wppIcon.png" />
-            <div class="contact-text">Negociável</div>
-          </div>
-          <div class="negociable">*Esse valor poderá ser negociado.</div>
+          <div class="categories-state">{{ $ad->state->name }} / {{ $ad->category->name }}</div>
+          <div class="ad-page-title">{{ $ad->title }}</div>
+          <div class="ad-page-date">Publicado em {{ $ad->created_at->format('d/m') }} às {{ $ad->created_at->format('H:i') }}</div>
+          <div class="ad-page-price">R$ {{ number_format($ad->price, 2, ',', '.') }}</div>
+          @if ($ad->negotiable)
+            <div class="contact">
+              <img src="/assets/icons/wppIcon.png" />
+              <div class="contact-text">Negociável</div>
+            </div>
+            <div class="negociable">*Esse valor poderá ser negociado.</div>    
+          @endif
           <div class="ad-page-text">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout.
+            {{ $ad->description }}
           </div>
           <button class="get-touch">Entrar em contato</button>
           <div class="views">
             <img src="/assets/icons/eyeGrayIcon.png" />
-            <div class="views-text">235 pessoas visualizaram este anúncio</div>
+            <div class="views-text">{{ $ad->views }} Visualizações neste anúncio</div>
           </div>
         </div>
       </div>
