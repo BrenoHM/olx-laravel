@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/adPageStyle.css" />
     <title>B7Store</title>
+    <script>
+      function callme(number) {
+        window.location.href = `https://api.whatsapp.com/send?phone=55${number}`;
+      }
+    </script>
   </head>
 
   <body>
@@ -55,7 +60,7 @@
           <div class="ad-page-text">
             {{ $ad->description }}
           </div>
-          <button class="get-touch">Entrar em contato</button>
+          <button onclick="callme({{ $ad->contact }})" class="get-touch">Entrar em contato</button>
           <div class="views">
             <img src="/assets/icons/eyeGrayIcon.png" />
             <div class="views-text">{{ $ad->views }} Visualizações neste anúncio</div>
