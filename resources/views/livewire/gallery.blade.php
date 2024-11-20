@@ -1,24 +1,15 @@
 <div class="ad-area-left">
     <div
       class="main-photo"
-      style="background-image: url('/assets/adFusca/fusca.png')"
+      style="background-image: url('{{ $featuredUrl }}')"
     ></div>
     <div class="secundary-photos">
+      @foreach ($images as $image)
       <div
+        wire:click="changeFeatured('{{ $image->url }}')"
         class="secundary-image"
-        style="background-image: url('/assets/adFusca/fusca2.png')"
+        style="background-image: url('{{ $image->url }}')"
       ></div>
-      <div
-        class="secundary-image"
-        style="background-image: url('/assets/adFusca/fusca3.png')"
-      ></div>
-      <div
-        class="secundary-image"
-        style="background-image: url('/assets/adFusca/fusca4.png')"
-      ></div>
-      <div
-        class="secundary-image"
-        style="background-image: url('/assets/adFusca/fusca5.png')"
-      ></div>
+      @endforeach
     </div>
   </div>
