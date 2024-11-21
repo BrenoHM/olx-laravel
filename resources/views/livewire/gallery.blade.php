@@ -8,7 +8,7 @@
       <div
         wire:click="changeFeatured('{{ $image->url }}')"
         class="secundary-image"
-        style="background-image: url('{{ $image->url }}')"
+        style="background-image: url('{{ $image->url }}'); opacity: {{ $featuredUrl == $image->url ? '1' : '0.5' }}"
       ></div>
       @endforeach
     </div>
