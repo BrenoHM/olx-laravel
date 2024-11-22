@@ -15,7 +15,18 @@ class AdController extends Controller
         }
         $ad->views++;
         $ad->save();
-        return view('single-ad', compact('ad'));
+
+        $relatedAds = Advertise::query()
+                        ->where('id', '!=', $ad->id)
+                        ->where('state_id', $ad->state_id)
+                        ->where('category_id', $ad->category_id)
+                        ->inRandomOrder()
+                        ->limit(4)
+                        ->get();
+
+                        dd($relatedAds);
+
+        return view('single-ad', compact('ad', 'relatedAds'));
     }
 
     public function delete(String $id)
