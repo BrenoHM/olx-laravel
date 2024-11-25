@@ -17,14 +17,13 @@ class AdController extends Controller
         $ad->save();
 
         $relatedAds = Advertise::query()
+                        ->with('images')
                         ->where('id', '!=', $ad->id)
                         ->where('state_id', $ad->state_id)
                         ->where('category_id', $ad->category_id)
                         ->inRandomOrder()
                         ->limit(4)
                         ->get();
-
-                        dd($relatedAds);
 
         return view('single-ad', compact('ad', 'relatedAds'));
     }

@@ -47,38 +47,16 @@
       <div class="ads">
         <div class="ads-title">Anúncios relacionados</div>
         <div class="ads-area">
-          <div class="ad-item">
-            <div
-              class="ad-image"
-              style="background-image: url('/assets/adFusca/fusca6.png')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 67 - Equipado</div>
-            <div class="ad-price">R$ 33.990,00</div>
-          </div>
-          <div class="ad-item">
-            <div
-              class="ad-image"
-              style="background-image: url('/assets/adFusca/fusca7.png')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 67 - Extra</div>
-            <div class="ad-price">R$ 36.900,00</div>
-          </div>
-          <div class="ad-item">
-            <div
-              class="ad-image"
-              style="background-image: url('/assets/adFusca/fusca8.png')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 68</div>
-            <div class="ad-price">R$ 34.450,00</div>
-          </div>
-          <div class="ad-item">
-            <div
-              class="ad-image"
-              style="background-image: url('/assets/adFusca/fusca9.png')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 66</div>
-            <div class="ad-price">R$ 35.450,00</div>
-          </div>
+          @foreach ($relatedAds as $ad)
+            <a class="ad-item" href="{{ route('ad.show', $ad->slug) }}">
+              <div
+                class="ad-image"
+                style="background-image: url('{{ $ad->images[0]->url ?? '' }}')"
+              ></div>
+              <div class="ad-title">{{ $ad->title }}</div>
+              <div class="ad-price">R$ {{ number_format($ad->price, 2, ',', '.') }}</div>
+            </a>
+          @endforeach
         </div>
       </div>
     </main>
