@@ -15,7 +15,7 @@ class Gallery extends Component
 
     public function mount($images) {
         $this->images = $images;
-        $this->featuredUrl = $images->where('featured', 1)->first()->url;
+        $this->featuredUrl = $images->where('featured', 1)->first()->url ?? 'https://placehold.it/500x500';
     }
 
     public function changeFeatured($url) {
