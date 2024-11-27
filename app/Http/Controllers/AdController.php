@@ -21,7 +21,8 @@ class AdController extends Controller
                         ->where('id', '!=', $ad->id)
                         ->where('state_id', $ad->state_id)
                         ->where('category_id', $ad->category_id)
-                        ->inRandomOrder()
+                        ->orderBy('created_at', 'desc')
+                        ->orderBy('views', 'desc')
                         ->limit(4)
                         ->get();
 
