@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/adPageStyle.css" />
+    <link rel="stylesheet" href="/assets/myAdsStyle.css" />
     <title>B7Store</title>
     <script>
       function callme(number) {
@@ -47,16 +48,22 @@
       <div class="ads">
         <div class="ads-title">Anúncios relacionados</div>
         <div class="ads-area">
-          @foreach ($relatedAds as $ad)
-            <a class="ad-item" href="{{ route('ad.show', $ad->slug) }}">
-              <div
-                class="ad-image"
-                style="background-image: url('{{ $ad->images[0]->url ?? '' }}')"
-              ></div>
-              <div class="ad-title">{{ $ad->title }}</div>
-              <div class="ad-price">R$ {{ number_format($ad->price, 2, ',', '.') }}</div>
-            </a>
-          @endforeach
+          @if ($relatedAds->count() > 0)
+            @foreach ($relatedAds as $ad)
+              <a class="ad-item" href="{{ route('ad.show', $ad->slug) }}">
+                <div
+                  class="ad-image"
+                  style="background-image: url('{{ $ad->images[0]->url ?? '' }}')"
+                ></div>
+                <div class="ad-title">{{ $ad->title }}</div>
+                <div class="ad-price">R$ {{ number_format($ad->price, 2, ',', '.') }}</div>
+              </a>
+              <x-basic-ad :avertise="$ad" :myAds="@isset(auth()->user()->id) && $avertise->user_id == auth()->user()->id" />
+            @endforeach
+          @else
+            <div class="no-ads">Nenhum anúncio relacionado</div>
+          @endif
+          
         </div>
       </div>
     </main>
