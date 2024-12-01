@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AdController extends Controller
 {
+
+    public function list() {
+        return view('list');
+    }
+
     public function show(String $slug)
     {
         $ad = Advertise::query()->where('slug', $slug)->first();
