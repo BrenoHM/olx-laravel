@@ -1,4 +1,4 @@
-<div>
+<main>
     <div class="hero-area">
         <div class="search-area-adsList">
         <input
@@ -36,86 +36,16 @@
     <div class="ads">
         <div class="ads-title">Anúncios recentes</div>
         <div class="ads-area">
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 68</div>
-            <div class="ad-price">R$ 34.990,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Volkswagen Polo 2015 - Azul</div>
-            <div class="ad-price">R$ 67.900,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">CR-V EXL 2020 (EXTRA)</div>
-            <div class="ad-price">R$ 230.450,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 67 - Equipado</div>
-            <div class="ad-price">R$ 33.990,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Corolla GLI 2021 - Completo</div>
-            <div class="ad-price">R$ 114.990,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Rav4 SX - Completo</div>
-            <div class="ad-price">R$ 160.900,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">500 Cult 2015 (Extra)</div>
-            <div class="ad-price">R$ 35.450,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Volkswagen Fusca 67 - Extra</div>
-            <div class="ad-price">R$ 36.900,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Tucson GLS 2019</div>
-            <div class="ad-price">R$ 114.990,00</div>
-        </div>
-        <div class="ad-item">
-            <div
-            class="ad-image"
-            style="background-image: url('https://placehold.it/150x150')"
-            ></div>
-            <div class="ad-title">Civic Touring 2020</div>
-            <div class="ad-price">R$ 122.990,00</div>
-        </div>
+            @foreach ($filteredAds as $ad)
+                <div class="ad-item">
+                    <div
+                    class="ad-image"
+                    style="background-image: url('{{ $ad->images[0]->url ?? 'https://via.placeholder.com/150' }}')"
+                    ></div>
+                    <div class="ad-title">{{ $ad->title }}</div>
+                    <div class="ad-price">R$ {{ number_format($ad->price, 2, ',', '.') }}</div>
+                </div>    
+            @endforeach
         </div>
     </div>
-</div>
+</main>

@@ -14,9 +14,7 @@
 
   <body>
     <x-base.header />
-    <main>
       <livewire:ad-list />
-    </main>
     <x-base.footer />
   </body>
 </html>
