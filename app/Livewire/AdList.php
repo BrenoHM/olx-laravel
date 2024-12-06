@@ -9,7 +9,6 @@ use Livewire\Component;
 
 class AdList extends Component
 {
-    public $filteredAds = [];
     public $categories = [];
     public $states = [];
     public $categorySelected;
@@ -27,8 +26,9 @@ class AdList extends Component
         if ($this->textSearch) {
             $query->where('title', 'like', '%' . $this->textSearch . '%');
         }
-        $this->filteredAds = $query->get();
-        return view('livewire.ad-list');
+        return view('livewire.ad-list', [
+            'filteredAds' => $query->simplePaginate(1),
+        ]);
     }
 
     public function mount()
