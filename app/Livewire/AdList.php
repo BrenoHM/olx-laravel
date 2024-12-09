@@ -6,9 +6,11 @@ use App\Models\Advertise;
 use App\Models\Category;
 use App\Models\State;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdList extends Component
 {
+    use WithPagination;
     public $categories = [];
     public $states = [];
     public $categorySelected;
@@ -29,6 +31,11 @@ class AdList extends Component
         return view('livewire.ad-list', [
             'filteredAds' => $query->simplePaginate(1),
         ]);
+    }
+
+    public function updated()
+    {
+        $this->resetPage();
     }
 
     public function mount()
