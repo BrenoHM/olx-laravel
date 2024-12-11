@@ -31,7 +31,7 @@
     @endif
     <div
       class="ad-image"
-      style="background-image: url('{{$avertise->images[0]->url ?? 'https://placehold.it/500x500'}}')"
+      style="background-image: url('{{$avertise->images[0]->url ?? 'https://via.placeholder.com/400x300.png?text=Sem+Imagem'}}')"
     ></div>
   </div>
   <div class="ad-title">{{$avertise->title}}</div>

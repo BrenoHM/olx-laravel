@@ -13,7 +13,7 @@ class FilteredAdvertises extends Component
     public $advertiseList = null;
     public function __construct()
     {
-        $this->advertiseList = Advertise::all();
+        $this->advertiseList = Advertise::orderBy('created_at', 'desc')->limit(4)->get();
     }
 
     /**

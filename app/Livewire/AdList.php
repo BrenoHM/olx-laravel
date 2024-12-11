@@ -29,7 +29,7 @@ class AdList extends Component
             $query->where('title', 'like', '%' . $this->textSearch . '%');
         }
         return view('livewire.ad-list', [
-            'filteredAds' => $query->simplePaginate(1),
+            'filteredAds' => $query->orderBy('created_at', 'desc')->paginate(4),
         ]);
     }
 

@@ -34,14 +34,15 @@
         <div class="ads-title">Anúncios recentes</div>
         <div class="ads-area">
             @foreach ($filteredAds as $ad)
-                <div class="ad-item">
+                <x-basic-ad :avertise="$ad" />
+                {{-- <div class="ad-item">
                     <div
                     class="ad-image"
                     style="background-image: url('{{ $ad->images[0]->url ?? 'https://via.placeholder.com/150' }}')"
                     ></div>
                     <div class="ad-title">{{ $ad->title }}</div>
                     <div class="ad-price">R$ {{ number_format($ad->price, 2, ',', '.') }}</div>
-                </div>    
+                </div> --}}
             @endforeach
         </div>
         <div class="mt-4">{{ $filteredAds->links() }}</div>
