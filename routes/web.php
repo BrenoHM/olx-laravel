@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('/list', [AdController::class, 'list'])->name('ad.list');
+Route::get('/category/{slug}', [AdController::class, 'category'])->name('ad.category');
 Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad.show');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_action'])->name('register_action');
