@@ -9,6 +9,9 @@
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
+.decoration-none {
+  text-decoration: none;
+}
 /* 
 * Header
 */
@@ -184,11 +187,7 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.buttons .cars,
-.buttons .eletronics,
-.buttons .clothes,
-.buttons .sports,
-.buttons .babies {
+.buttons a.category_button {
   width: 17%;
   aspect-ratio: 17/5;
   display: flex;
@@ -197,7 +196,7 @@ main {
   cursor: pointer;
   border: 0;
 }
-.buttons .cars {
+.buttons .category_button:first-child {
   background-color: #5c7bfa;
   color: #fff;
   font-size: 16px;
@@ -206,18 +205,11 @@ main {
   line-height: normal;
   border: 0;
 }
-.buttons .eletronics,
-.buttons .clothes,
-.buttons .sports,
-.buttons .babies {
+.buttons a.category_button {
   background-color: #f5f7ff;
   color: #5c7bfa;
 }
-.buttons .cars img,
-.buttons .eletronics img,
-.buttons .clothes img,
-.buttons .sports img,
-.buttons .babies img {
+.buttons a.category_button img {
   margin-right: 8px;
 }
 /* 

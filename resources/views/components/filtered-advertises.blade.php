@@ -1,11 +1,14 @@
 <div class="categories-area">
     <div class="title">Categorias</div>
     <div class="buttons">
-      <button class="cars">
-        <img src="assets/icons/carIcon.png" alt="Ícone Carros" />
-        Carros
-      </button>
-      <button class="eletronics">
+      @foreach ($categories as $category)
+        <a href="{{route('ad.category', $category->slug)}}" class="category_button decoration-none" >
+          <img src="assets/icons/{{$category->icon}}" alt="Ícone {{$category->name}}" />
+          {{$category->name}}
+        </a>
+      @endforeach
+      
+      {{-- <button class="eletronics">
         <img
           src="assets/icons/eletronicsIcon.png"
           alt="Ícone Eletrônicos"
@@ -23,7 +26,7 @@
       <button class="babies">
         <img src="assets/icons/babiesIcon.png" alt="Ícone Bebês" />
         Bebês
-      </button>
+      </button> --}}
     </div>
   </div>
   <div class="ads">
