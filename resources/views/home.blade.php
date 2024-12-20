@@ -16,6 +16,7 @@
     <x-base.header />
     <main>
       <x-hero />
+      <livewire:categories-list />
       <x-filtered-advertises />
     </main>
     <x-base.footer />
