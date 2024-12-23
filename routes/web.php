@@ -26,6 +26,7 @@ Route::post('/select-state', [AuthController::class, 'state_action'])->name('sta
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'action_my_account'])->name('action.my_account');
+    Route::get('/dashboard/advertise', [AdController::class, 'create'])->name('ad.create');
 });
 Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
 Route::get('/dashboard/ad/delete/{id}', [AdController::class, 'delete'])->name('ad.delete');

@@ -46,7 +46,7 @@ class AuthController extends Controller
         Auth::user()->state()->associate($stateRegister);
         Auth::user()->save();
         
-        return redirect()->route('home');
+        return redirect()->route('my_account');
     }
 
     public function login_action(LoginRequest $request)
@@ -56,7 +56,7 @@ class AuthController extends Controller
         if (!Auth::attempt($loginData)) {
             return redirect()->route('login')->with('error', 'E-mail ou senha inválidos');
         }
-        return redirect()->route('home');
+        return redirect()->route('my_account');
     }
 
     public function logout()

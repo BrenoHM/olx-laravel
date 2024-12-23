@@ -40,4 +40,5 @@ class DashboardController extends Controller
         //dd($user->advertises);
         return view('dashboard.my-ads', compact('user'));
     }
+
 }

@@ -54,4 +54,9 @@ class AdController extends Controller
         $filteredAds = Advertise::query()->where('category_id', $category->id)->paginate(10);
         return view('category-list', compact('filteredAds'));
     }
+
+    public function create()
+    {
+        return view('ad.create');
+    }
 }
