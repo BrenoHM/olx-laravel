@@ -34,12 +34,18 @@
           <form class="newAd-form" wire:submit.prevent="save">
             <div class="title-area">
               <div class="title-label">Título do anúncio</div>
+              @error('title')
+                  <span class="error">{{ $message }}</span>
+              @enderror
               <input type="text" wire:model="title" placeholder="Digite o título do anúncio" />
             </div>
             <div class="value-area">
               <div class="value-label">
                 <div class="value-area-text">Valor</div>
                 <input type="text" wire:model="price" placeholder="Digite o valor" />
+                @error('price')
+                    <span class="error">{{ $message }}</span>
+                @enderror
               </div>
               <div class="negotiable-area">
                 <div class="negotiable-label">Negociável?</div>
@@ -47,6 +53,9 @@
                   <option selected value="0">Não</option>
                   <option value="1">Sim</option>
                 </select>
+                @error('negotiable')
+                    <span class="error">{{ $message }}</span>
+                @enderror
               </div>
             </div>
             <div class="newAd-categories-area">
@@ -59,6 +68,9 @@
                   <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
               </select>
+              @error('category_id')
+                  <span class="error">{{ $message }}</span>
+              @enderror
             </div>
             <div class="description-area">
               <div class="description-label">Descrição</div>
@@ -67,6 +79,9 @@
                 placeholder="Digite a descrição do anúncio"
                 wire:model="description"
               ></textarea>
+              @error('description')
+                  <span class="error">{{ $message }}</span>
+              @enderror
             </div>
             <button class="newAd-button">Criar anúncio</button>
           </form>

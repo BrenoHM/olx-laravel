@@ -14,6 +14,15 @@ class AdCreate extends Component
     public $negotiable;
     //public $image;
 
+    protected $rules = [
+        'title' => 'required|min:8|max:255',
+        'description' => 'required|min:8|max:255',
+        'price' => 'required|numeric',
+        'category_id' => 'required|exists:categories,id',
+        'negotiable' => 'required|boolean',
+        //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ];
+
     public function render()
     {
         $categories = Category::all();
@@ -22,11 +31,7 @@ class AdCreate extends Component
 
     public function save()
     {
-        $this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required|numeric',
-        ]);
+        $this->validate();
 
         // Save the ad to the database
 
