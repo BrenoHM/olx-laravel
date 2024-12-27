@@ -8,8 +8,9 @@
             <div class="area-left-up-img">
               <img src="/assets/icons/imageIcon.png" />
               <div class="area-left-up-img-text">
-                <span>Clique aqui</span> para enviar uma imagem
+                <span onclick="document.getElementById('image').click()">Clique aqui</span> para enviar uma imagem
               </div>
+              <input type="file" name="image" id="image" style="display: none" wire:model="image" />
             </div>
           </div>
           <div class="area-left-bottom">
@@ -42,24 +43,27 @@
             <div class="value-area">
               <div class="value-label">
                 <div class="value-area-text">Valor</div>
-                <input type="text" wire:model="price" placeholder="Digite o valor" />
                 @error('price')
                     <span class="error">{{ $message }}</span>
                 @enderror
+                <input type="text" wire:model="price" placeholder="Digite o valor" />
               </div>
               <div class="negotiable-area">
                 <div class="negotiable-label">Negociável?</div>
+                @error('negotiable')
+                    <span class="error">{{ $message }}</span>
+                @enderror
                 <select wire:model="negotiable">
                   <option selected value="0">Não</option>
                   <option value="1">Sim</option>
                 </select>
-                @error('negotiable')
-                    <span class="error">{{ $message }}</span>
-                @enderror
               </div>
             </div>
             <div class="newAd-categories-area">
               <div class="newAd-categories-label">Categorias</div>
+              @error('category_id')
+                  <span class="error">{{ $message }}</span>
+              @enderror
               <select class="newAd-categories" wire:model="category_id">
                 <option selected value="">
                   Selecione uma categoria
@@ -68,20 +72,17 @@
                   <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
               </select>
-              @error('category_id')
-                  <span class="error">{{ $message }}</span>
-              @enderror
             </div>
             <div class="description-area">
               <div class="description-label">Descrição</div>
+              @error('description')
+                  <span class="error">{{ $message }}</span>
+              @enderror
               <textarea
                 class="description-text"
                 placeholder="Digite a descrição do anúncio"
                 wire:model="description"
               ></textarea>
-              @error('description')
-                  <span class="error">{{ $message }}</span>
-              @enderror
             </div>
             <button class="newAd-button">Criar anúncio</button>
           </form>
