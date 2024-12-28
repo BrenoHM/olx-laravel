@@ -8,9 +8,9 @@
             <div class="area-left-up-img">
               <img src="/assets/icons/imageIcon.png" />
               <div class="area-left-up-img-text">
-                <span onclick="document.getElementById('image').click()">Clique aqui</span> para enviar uma imagem
+                <span onclick="document.getElementById('photos').click()">Clique aqui</span> para enviar uma imagem
               </div>
-              <input type="file" name="image" id="image" style="display: none" wire:model="image" />
+              <input type="file" id="photos" style="display: none" wire:model="photos" multiple />
             </div>
           </div>
           <div class="area-left-bottom">
