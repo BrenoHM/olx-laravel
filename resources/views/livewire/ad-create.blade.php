@@ -10,7 +10,10 @@
               <div class="area-left-up-img-text">
                 <span onclick="document.getElementById('photos').click()">Clique aqui</span> para enviar uma imagem
               </div>
-              <input type="file" id="photos" style="display: none" wire:model="photos" multiple />
+              @error('photos')
+                  <span class="error">{{ $message }}</span>
+              @enderror
+              <input type="file" id="photos" style="display: none" wire:model="photos" accept="image/*" multiple />
             </div>
           </div>
           <div class="area-left-bottom">
@@ -54,7 +57,8 @@
                     <span class="error">{{ $message }}</span>
                 @enderror
                 <select wire:model="negotiable">
-                  <option selected value="0">Não</option>
+                  <option value="">Selecione</option>
+                  <option value="0">Não</option>
                   <option value="1">Sim</option>
                 </select>
               </div>
