@@ -110,12 +110,7 @@ form {
 }
 .value-area {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 24px;
-}
-.value-label {
-  width: 60%;
 }
 .value-label input {
   width: 100%;
@@ -127,7 +122,8 @@ form {
   border: 1.5px solid #e7e9ed;
 }
 .negotiable-area {
-  width: 30%;
+  width: 100%;
+  margin-bottom: 24px;
 }
 .negotiable-area select {
   width: 100%;

@@ -24,13 +24,13 @@ class AdCreate extends Component
         'price' => 'required|numeric',
         'category_id' => 'required|exists:categories,id',
         'negotiable' => 'required|boolean',
-        'photos' => 'required|array|image|min:1|max:5',
-        'photos.*' => 'max:2048',
+        'photos' => 'required|array|min:1|max:5',
+        'photos.*' => 'image|max:2048',
     ];
 
     protected $messages = [
         '*.required' => 'Este campo é obrigatório.',
-        'photos.image' => 'Só é permitido enviar imagens.',
+        'photos.*.image' => 'Só é permitido enviar imagens.',
         'photos.max' => 'Só podem ser enviadas até 5 fotos.',
         'photos.*.max' => 'A imagem deve ter no máximo 2MB.',
     ];

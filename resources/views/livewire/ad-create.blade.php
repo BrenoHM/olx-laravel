@@ -17,7 +17,17 @@
             </div>
           </div>
           <div class="area-left-bottom">
-            <div class="smallpics">
+            @foreach ($photos as $photo)
+              <div class="smallpics">
+                <img src="{{ $photo->temporaryUrl() }}" />
+              </div>
+            @endforeach
+            @for ($i = 0; $i < 5 - count($photos); $i++)
+              <div class="smallpics">
+                <img src="/assets/icons/imageSmallIcon.png" />
+              </div>
+            @endfor
+            {{-- <div class="smallpics">
               <img src="/assets/icons/imageSmallIcon.png" />
             </div>
             <div class="smallpics">
@@ -31,7 +41,7 @@
             </div>
             <div class="smallpics">
               <img src="/assets/icons/imageSmallIcon.png" />
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="newAd-area-right">
@@ -51,17 +61,17 @@
                 @enderror
                 <input type="text" wire:model="price" placeholder="Digite o valor" />
               </div>
-              <div class="negotiable-area">
-                <div class="negotiable-label">Negociável?</div>
-                @error('negotiable')
-                    <span class="error">{{ $message }}</span>
-                @enderror
-                <select wire:model="negotiable">
-                  <option value="">Selecione</option>
-                  <option value="0">Não</option>
-                  <option value="1">Sim</option>
-                </select>
-              </div>
+            </div>
+            <div class="negotiable-area">
+              <div class="negotiable-label">Negociável?</div>
+              @error('negotiable')
+                  <span class="error">{{ $message }}</span>
+              @enderror
+              <select wire:model="negotiable">
+                <option value="">Selecione</option>
+                <option value="0">Não</option>
+                <option value="1">Sim</option>
+              </select>
             </div>
             <div class="newAd-categories-area">
               <div class="newAd-categories-label">Categorias</div>
